@@ -22,7 +22,9 @@ function App() {
   };
   const totalVotes = votes.good + votes.bad + votes.neutral;
   const canReset = totalVotes > 0;
-  const positiveRate = Math.round((votes.good / totalVotes) * 100);
+  const positiveRate = totalVotes
+    ? Math.round((votes.good / totalVotes) * 100)
+    : 0;
   return (
     <div className={css.app}>
       <CafeInfo />
